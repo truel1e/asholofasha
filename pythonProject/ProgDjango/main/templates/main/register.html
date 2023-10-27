@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('https://get.wallhere.com/photo/selective-coloring-anime-girls-anime-monochrome-cartoon-gesture-black-hair-flash-photography-ART-long-hair-cg-artwork-audio-equipment-hime-cut-carmine-event-drawing-fictional-character-Animated-cartoon-action-figure-illustration-darkness-graphics-fiction-animation-2025771.jpg');
+            background-size: cover;
+            background-position: center top;
+            background-repeat: no-repeat;
+            font-family: Arial, sans-serif;
+            color: #fff;
+        }
+
+        .register-container {
+            max-width: 400px;
+            margin: 0 auto;
+            margin-top: 100px;
+            padding: 30px;
+            border: 4px solid #ffffff;
+            border-radius: 15px;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .register-container h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #fff;
+        }
+
+        .register-container .form-label,
+        .register-container .btn {
+            color: #fff; /* Установите цвет надписей (лейблов и кнопки) в белый (#fff) */
+        }
+
+        .register-container .form-control {
+            color: #000; /* Установите цвет текста, вводимого пользователем, в черный (#000) */
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container register-container">
+        <h2>Регистрация</h2>
+        {% if error_message %}
+        <div class="alert alert-danger" role="alert">
+            {{ error_message }}
+        </div>
+        {% endif %}
+        <form method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="id_username" class="form-label">Имя пользователя:</label>
+                <input type="text" class="form-control" id="id_username" name="username" required>
+            </div>
+            <div class="mb-3">
+                <label for="id_password1" class="form-label">Пароль:</label>
+                <input type="password" class="form-control" id="id_password1" name="password1" required>
+            </div>
+            <div class="mb-3">
+                <label for="id_password2" class="form-label">Подтвердите пароль:</label>
+                <input type="password" class="form-control" id="id_password2" name="password2" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
+        </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
